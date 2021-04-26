@@ -13,7 +13,6 @@ import java.util.Set;
 
 public class Movie {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "title")
@@ -30,6 +29,9 @@ public class Movie {
             joinColumns = @JoinColumn(name = "actor_id"),
             inverseJoinColumns = @JoinColumn(name = "movie_id"))
     Set<Actor> actors;
+
+    @Column(name = "describe")
+    private String describe;
 
 
 }

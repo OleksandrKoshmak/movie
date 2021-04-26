@@ -1,13 +1,12 @@
 package movie.demo.mapper;
 
-import org.modelmapper.ModelMapper;
+import org.mapstruct.Mapper;
 
+@Mapper
 public class MapService {
 
 
-    void doSomething(){
-    }
-
 
 }
+
 
