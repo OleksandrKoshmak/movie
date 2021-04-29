@@ -1,9 +1,11 @@
 package movie.demo.controller;
 
 import lombok.RequiredArgsConstructor;
-import movie.demo.dto.MovieRequestDto;
-import movie.demo.dto.MovieResponseDto;
+import movie.demo.dto.movieDto.MovieRequestDto;
+import movie.demo.dto.movieDto.MovieRequestForUpdateDto;
+import movie.demo.dto.movieDto.MovieResponseDto;
 import movie.demo.service.MovieService;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -21,7 +23,16 @@ public class MovieController {
     @PostMapping("/add")
     public MovieResponseDto addMovie(@RequestBody MovieRequestDto dto) {
         return movieService.saveMovie(dto);
+    }
 
+    @RequestMapping (value = "/edit", method = RequestMethod.PUT)
+    public String editMovie(@RequestBody MovieRequestForUpdateDto dto){
+       return movieService.updateMovie(dto);
+    }
+
+    @RequestMapping (value = "/delete", method = RequestMethod.DELETE)
+    public boolean deleteMovie(@Param("id") Integer id){
+       return movieService.deleteMovie(id);
     }
 
 }
