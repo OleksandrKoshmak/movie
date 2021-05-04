@@ -1,4 +1,4 @@
-package movie.demo.dto.movieDto;
+package movie.core.dto.movieDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Value;

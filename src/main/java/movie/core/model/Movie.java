@@ -1,4 +1,4 @@
-package movie.demo.model;
+package movie.core.model;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -13,7 +13,7 @@ import java.util.Set;
 
 public class Movie {
     @Id
-    private int id;
+    private long id;
 
     @Column(name = "title")
     private String title;

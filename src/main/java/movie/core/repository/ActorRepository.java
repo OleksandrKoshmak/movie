@@ -1,6 +1,6 @@
-package movie.demo.repository;
+package movie.core.repository;
 
-import movie.demo.model.Actor;
+import movie.core.model.Actor;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

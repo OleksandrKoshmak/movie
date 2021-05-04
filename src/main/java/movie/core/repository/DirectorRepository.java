@@ -1,6 +1,6 @@
-package movie.demo.repository;
+package movie.core.repository;
 
-import movie.demo.model.Director;
+import movie.core.model.Director;
 import org.springframework.data.repository.CrudRepository;
 
 public interface DirectorRepository extends CrudRepository<Director, Integer> {

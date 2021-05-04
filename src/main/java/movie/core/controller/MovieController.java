@@ -1,12 +1,11 @@
-package movie.demo.controller;
+package movie.core.controller;
 
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import movie.demo.dto.movieDto.MovieRequestDto;
-import movie.demo.dto.movieDto.MovieRequestForUpdateDto;
-import movie.demo.dto.movieDto.MovieResponseDto;
-import movie.demo.model.Movie;
-import movie.demo.service.MovieService;
+import movie.core.dto.movieDto.MovieRequestDto;
+import movie.core.model.Movie;
+import movie.core.service.MovieService;
+import movie.core.dto.movieDto.MovieRequestForUpdateDto;
+import movie.core.dto.movieDto.MovieResponseDto;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +19,7 @@ public class MovieController {
     private final MovieService movieService;
 
     @RequestMapping("/get")
-    public MovieResponseDto getMovieById(@RequestParam("id") int id) {
+    public MovieResponseDto getMovieById(@RequestParam("id") Long id) {
         return movieService.getMovieById(id);
     }
 
@@ -35,7 +34,7 @@ public class MovieController {
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
-    public boolean deleteMovie(@Param("id") Integer id) {
+    public boolean deleteMovie(@Param("id") Long id) {
         return movieService.deleteMovie(id);
     }
 

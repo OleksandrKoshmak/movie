@@ -1,12 +1,12 @@
-package movie.demo.service;
+package movie.core.service;
 
 import lombok.RequiredArgsConstructor;
-import movie.demo.dto.movieDto.MovieRequestDto;
-import movie.demo.dto.movieDto.MovieRequestForUpdateDto;
-import movie.demo.dto.movieDto.MovieResponseDto;
-import movie.demo.mapper.MovieMapper;
-import movie.demo.model.Movie;
-import movie.demo.repository.MovieRepository;
+import movie.core.dto.movieDto.MovieRequestDto;
+import movie.core.dto.movieDto.MovieRequestForUpdateDto;
+import movie.core.dto.movieDto.MovieResponseDto;
+import movie.core.mapper.MovieMapper;
+import movie.core.model.Movie;
+import movie.core.repository.MovieRepository;
 import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Service;
 
@@ -29,7 +29,7 @@ public class MovieService {
     }
 
     @Transactional
-    public MovieResponseDto getMovieById(Integer id) {
+    public MovieResponseDto getMovieById(Long id) {
         return repository.findById(id)
                 .map(mapper::toDto)
                 .orElseThrow(() -> new EntityNotFoundException("User not found"));
@@ -47,7 +47,7 @@ public class MovieService {
     }
 
     @Transactional
-    public boolean deleteMovie(Integer id) {
+    public boolean deleteMovie(Long id) {
         repository.deleteMovieById(id);
         return true;
     }

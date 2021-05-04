@@ -1,4 +1,4 @@
-package movie.demo.model;
+package movie.core.model;
 
 import lombok.Getter;
 

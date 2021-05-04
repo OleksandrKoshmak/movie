@@ -1,8 +1,9 @@
-package movie.demo.dto.movieDto;
+package movie.core.dto.movieDto;
 
+import lombok.Data;
 import lombok.Value;
-import movie.demo.model.Director;
-import movie.demo.model.GenreEntity;
+import movie.core.model.Director;
+import movie.core.model.GenreEntity;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
