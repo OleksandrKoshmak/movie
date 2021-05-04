@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
-import java.util.Optional;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -21,20 +21,22 @@ public class MovieService {
     private final MovieRepository repository;
     private final MovieMapper mapper = Mappers.getMapper(MovieMapper.class);
 
-
+    @Transactional
     public MovieResponseDto saveMovie(MovieRequestDto dto) {
         Movie entity = mapper.toEntity(dto);
         repository.save(entity);
         return mapper.toDto(entity);
     }
 
+    @Transactional
     public MovieResponseDto getMovieById(Integer id) {
         return repository.findById(id)
                 .map(mapper::toDto)
                 .orElseThrow(() -> new EntityNotFoundException("User not found"));
     }
 
-    public String updateMovie (MovieRequestForUpdateDto dto){
+    @Transactional
+    public String updateMovie(MovieRequestForUpdateDto dto) {
         Movie movie = repository.findById(dto.getId())
                 .orElseThrow(() -> new EntityNotFoundException("User not found"));
         movie.setTitle(dto.getTitle());
@@ -45,9 +47,15 @@ public class MovieService {
     }
 
     @Transactional
-    public boolean deleteMovie (Integer id){
+    public boolean deleteMovie(Integer id) {
         repository.deleteMovieById(id);
         return true;
     }
+
+    @Transactional
+    public List<Movie> getAllMovies() {
+        return repository.findAll();
+    }
+
 
 }
