@@ -1,8 +1,10 @@
 package movie.core.dto.directorDto;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Value;
+import movie.core.model.Movie;
+
+import java.util.Set;
 
 @Value
 @AllArgsConstructor
@@ -11,4 +13,5 @@ public class DirectorResponseDto {
     private Long id;
     private String name;
     private int personalRating;
+    private Set<Movie> movies;
 }
