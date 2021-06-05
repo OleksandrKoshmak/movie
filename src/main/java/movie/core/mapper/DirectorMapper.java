@@ -4,7 +4,6 @@ import movie.core.dto.directorDto.DirectorRequestDto;
 import movie.core.dto.directorDto.DirectorResponseDto;
 import movie.core.model.Director;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 @Mapper

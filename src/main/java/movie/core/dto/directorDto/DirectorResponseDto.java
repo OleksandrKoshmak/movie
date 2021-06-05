@@ -12,6 +12,6 @@ public class DirectorResponseDto {
     private static String MSG = "successful saved";
     private Long id;
     private String name;
-    private int personalRating;
+    private int rate;
     private Set<Movie> movies;
 }
